@@ -8,12 +8,10 @@ public class MetodosCreateC {
             System.out.print("Digite su nombre: ");
                    String nombre = scanner.nextLine();
                    System.out.println();
-            
                    System.out.print("Digite su numero de cedula: ");
                    String cedula = scanner.nextLine();
                    System.out.println();       
-            
-                   System.out.println("Ciudad de procedencia");
+                   System.out.print("Ciudad de procedencia");
                    System.out.println();
                    System.out.println("1. Cali      6. Cartago");
                    System.out.println("2. Palmira   7. Jamundi");
@@ -28,14 +26,10 @@ public class MetodosCreateC {
                            Ciudades ciudadElegida = null;
                            do{ 
                            switch(opcion){
-                            case 1: ciudadElegida = Ciudades.Cali;
-                                    break;
-                            case 2: ciudadElegida = Ciudades.Palmira;
-                                    break;
-                            case 3: ciudadElegida = Ciudades.Yumbo;
-                                    break;
-                            case 4: ciudadElegida = Ciudades.Tuluá;
-                                    break;
+                            case 1: ciudadElegida = Ciudades.Cali;break;
+                            case 2: ciudadElegida = Ciudades.Palmira;break;
+                            case 3: ciudadElegida = Ciudades.Yumbo;break;
+                            case 4: ciudadElegida = Ciudades.Tuluá;break;
                             case 0: break;
                             default: System.out.println("Opcion incorrecta");
                            }
