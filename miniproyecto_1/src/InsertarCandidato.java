@@ -112,6 +112,7 @@ public class InsertarCandidato {
                                             break;
                                     case 0: break;
                                     default: System.out.println("Opcion incorrecta"); 
+                        
                                 }
                             }
                             try(Scanner scannerVotos = new Scanner(System.in)){
