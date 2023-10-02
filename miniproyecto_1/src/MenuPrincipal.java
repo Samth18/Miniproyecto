@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
     public static void main(String[] args) throws Exception {
-        MetodosCreateC metodosCreateC = new MetodosCreateC();
+        //MetodosCreateC metodosCreateC = new MetodosCreateC();
         System.out.println("--------Bienvenido señor/a-----------\n");
 
         System.out.println("--------Digite la opcion a la cual desee acceder---------\n");
