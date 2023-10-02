@@ -14,7 +14,6 @@ public class InsertarCandidato {
                 System.out.print("Digite la cedula del candidato: ");
                 String cedula = scannerCedula.nextLine();
                 System.out.println();
-                System.out.println(listaCandidato);
                 System.out.println("Ciudad de procedencia");
                 System.out.println();
                 System.out.println("1. Cali      6. Cartago");
@@ -35,7 +34,17 @@ public class InsertarCandidato {
                                 break;
                         case 3: ciudadElegida = Ciudades.Yumbo;
                                 break;
-                        case 4: ciudadElegida = Ciudades.Tuluá;
+                        case 5: ciudadElegida = Ciudades.Buenaventura;
+                                break;
+                        case 6: ciudadElegida = Ciudades.Cartago;
+                                break;
+                        case 7: ciudadElegida = Ciudades.Jamundi;
+                                break;
+                        case 8: ciudadElegida = Ciudades.Buga;
+                                break;
+                        case 9: ciudadElegida = Ciudades.Andalucia;
+                                break;
+                        case 10: ciudadElegida = Ciudades.Bugalagrande;
                                 break;
                         case 0: break;
                         default: System.out.println("Opcion incorrecta");
@@ -44,7 +53,6 @@ public class InsertarCandidato {
                     System.out.println();
                     System.out.println("1. Derecha");
                     System.out.println("2. Izquierda");
-                    System.out.println("0. Salir");
                     System.out.print("Digite una Opcion: ");
                     try(Scanner scannerIdeologia = new Scanner(System.in)){
                         byte opcionIdeologia = scannerIdeologia.nextByte();
@@ -54,7 +62,6 @@ public class InsertarCandidato {
                                     break;
                             case 2: ideologiaElegida = Ideologia.Izquierda;
                                     break;
-                            case 0: break;
                             default: System.out.println("Opcion incorrecta");
                            }
                         try(Scanner scannerPartido = new Scanner(System.in)){
