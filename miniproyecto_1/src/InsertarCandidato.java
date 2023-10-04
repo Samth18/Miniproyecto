@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class InsertarCandidato {
     public static void main(String[] args) throws Exception {
         ArrayList <Candidato> listaCandidato = new ArrayList<>();
-        
         try(Scanner scannerNombre = new Scanner(System.in)){
             System.out.print("Digite el nombre del candidato: ");
             String nombre = scannerNombre.nextLine();
@@ -122,14 +121,27 @@ public class InsertarCandidato {
                         
                                 }
                             }
-                            try(Scanner scannerVotos = new Scanner(System.in)){
-                                System.out.print("Digite el numero de votos del candidato: ");
-                                int votos = scannerVotos.nextInt();
-                                System.out.println();
-                                Candidato candidato = new Candidato(ideologiaElegida, partidoElejido, args, votos, nombre, cedula, ciudadElegida);
-                                listaCandidato.add(candidato);
-                                System.out.println(listaCandidato);
-                            }    
+                                try(Scanner scannerPromesas = new Scanner(System.in)){
+                                        System.out.print("Digite las promesas del candidato: ");
+                                        String promesas = scannerPromesas.nextLine();
+                                        try(Scanner scannerVotos = new Scanner(System.in)){
+                                                System.out.print("Digite el numero de votos del candidato: ");
+                                                int votos = scannerVotos.nextInt();
+                                                System.out.println();
+                                                Candidato candidato = new Candidato(ideologiaElegida, partidoElejido, votos, promesas, nombre, cedula, ciudadElegida);
+                                                listaCandidato.add(candidato);
+                                                listaCandidato.forEach((i)->{
+                                                        System.out.println("Nombre del candidato: " + i.getNombre());
+                                                        System.out.println("Numero de cedula de el candidato: " + i.getCedula());
+                                                        System.out.println("Ciudad de procedencia del candidato: " + i.getCiudades());
+                                                        System.out.println("la ideologia del candidato: " + i.getIdeologia());
+                                                        System.out.println("Partido politico del candidato: " + i.getPartido());
+                                                        System.out.println("Las promesas del candidato: " + i.getPromesas());
+                                                        System.out.println("Numero de votos del candidato: " + i.getVotos());
+                                                        
+                                                });
+                                        }    
+                                 }            
                         } 
                     }                    
                 }

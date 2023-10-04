@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class Candidato extends Ciudadano {
     private Ideologia ideologia;
     private Partidos partido;
     private int votos;
-    private String[] promesas;
+    private String promesas;
 
-    public Candidato(Ideologia ideologia, Partidos partido, String[] promesas, int votos, String nombre, String cedula, Ciudades ciudad){
+    public Candidato(Ideologia ideologia, Partidos partido, int votos, String promesas, String nombre, String cedula, Ciudades ciudad){
         super(nombre, cedula, ciudad);
         this.ideologia = ideologia;
         this.partido = partido;
@@ -28,14 +30,6 @@ public class Candidato extends Ciudadano {
         this.partido = partido;
     }
 
-    public String[] getPromesas() {
-        return promesas;
-    }
-
-    public void setPromesas(String[] promesas) {
-        this.promesas = promesas;
-    }
-
     public int getVotos() {
         return votos;
     }
@@ -43,6 +37,13 @@ public class Candidato extends Ciudadano {
     public void setVotos(int votos) {
         this.votos = votos;
     }
-    
+
+    public String getPromesas() {
+        return promesas;
+    }
+
+    public void setPromesas(String promesas) {
+        this.promesas = promesas;
+    }
     
 }
