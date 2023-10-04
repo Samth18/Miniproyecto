@@ -122,6 +122,7 @@ public class MetodosCreateC {
                                 
                                         }
                                     }while(opcion4 != 0);
+                                    
                                 }
                                 Scanner scanner6 = new Scanner(System.in);
                                 int votos = scanner6.nextInt();
@@ -129,7 +130,7 @@ public class MetodosCreateC {
 
                            });
                            Ciudadano ciudadano = new Ciudadano(nombre, cedula, ciudadElegida);
-                           //Candidato candidato = new Candidato(ideologiaEleg);
+                           //Candidato candidato = new Candidato(ideologiaElegida);
                            //listaCandidato.add(candidato);
 
                            System.out.println("Sus Datos: ");
