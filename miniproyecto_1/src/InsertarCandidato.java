@@ -16,12 +16,12 @@ public class InsertarCandidato {
                 System.out.println();
                 System.out.println("Ciudad de procedencia");
                 System.out.println();
-                System.out.println("1. Cali      6. Cartago");
-                System.out.println("2. Palmira   7. Jamundi");
-                System.out.println("3. Yumbo     8. Buga");
-                System.out.println("4. Tuluá     9. Andalucia");
-                System.out.println("5. Buenaventura  10. Bugalagrande");
-                System.out.println("0. Salir");
+                System.out.println("1. Cali      6. Cartago\n" +
+                                "2. Palmira   7. Jamundi\n" +
+                                "3. Yumbo     8. Buga\n" +
+                                "4. Tuluá     9. Andalucia\n" +
+                                "5. Buenaventura  10. Bugalagrande\n" +
+                                "0. Salir");
                 System.out.print("Digite una opcion: ");
                 try(Scanner scannerCIudad = new Scanner(System.in)){
                     byte opcionCiudad = scannerCIudad.nextByte();
