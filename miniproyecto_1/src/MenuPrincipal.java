@@ -35,37 +35,8 @@ public class MenuPrincipal {
                 }
             }while(opciones != 0);
         }
-    }    
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*      Metodo para limpiar consola
         limpiarConsola();
