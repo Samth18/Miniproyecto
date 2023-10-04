@@ -21,7 +21,7 @@ public class MenuPrincipal {
         scanner.nextLine();
 
         switch(opciones) {
-            case 1: InsertarCandidato.main(args);
+            case 1: InsertarCandidato.insertarCandidato(scanner, args);
             break;
 
             //case 2: ActualizarCandidato.main();
