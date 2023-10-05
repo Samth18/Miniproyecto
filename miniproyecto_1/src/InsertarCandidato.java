@@ -127,4 +127,18 @@ public class InsertarCandidato {
     }
     private static void scannerPartido(InputStream in) { // Se define un método estático privado llamado scannerPartido que toma un objeto InputStream como parámetro y no retorna ningún valor. Este método probablemente esté destinado a escanear y procesar datos de tipo de partido.
     }
+
+            public static void insertar(){
+            System.out.print("Ingrese un nombre: ");
+            Scanner scannerPrueba = new Scanner(System.in);
+            
+            String nombre = scannerPrueba.nextLine();
+            scannerPrueba.close();
+            
+            scannerPrueba.nextLine();
+            System.out.print("Ingrese cedula: ");
+            Scanner scannerCedula = new Scanner(System.in);
+            String cedula = scannerCedula.nextLine();
+            scannerCedula.close();
+        }          
 }

@@ -10,13 +10,11 @@ public class Crud {
         System.out.print("Digite el nombre del candidato: ");
         String nombre = scanner.nextLine();
         System.out.println();
-        
 
         System.out.print("Digite la cedula del candidato: ");
         String cedula = scanner.nextLine();
         System.out.println();
         
-
         System.out.println("Ciudad de procedencia");
         System.out.println();
         System.out.println("1. Cali           2. Palmira         3. Yumbo\n" +
@@ -115,7 +113,6 @@ public class Crud {
         System.out.print("Digite el numero de votos del candidato: ");
         int votos = scanner.nextInt();
 
-        scanner.close();
         System.out.println();
         Candidato candidato = new Candidato(ideologiaElegida, partidoElejido, votos, promesas, nombre, cedula, ciudadElegida);
         listaCandidato.add(candidato);
@@ -131,7 +128,7 @@ public class Crud {
             System.out.println("La ideologia del candidato: " + i.getIdeologia());
             System.out.println("Partido politico del candidato: " + i.getPartido());
             System.out.println("Las promesas del candidato: " + i.getPromesas());
-            System.out.println("Numero de votos del candidato: " + i.getVotos());
+            System.out.println("Numero de votos del candidato: " + i.getVotos() + "\n");
         });
     }
 

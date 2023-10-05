@@ -5,36 +5,47 @@ public class MenuPrincipal {
         //MetodosCreateC metodosCreateC = new MetodosCreateC();
         System.out.println("--------Bienvenido señor/a-----------\n");
         System.out.println("--------Digite la opcion a la cual desee acceder---------\n");
-        try(Scanner scanner = new Scanner(System.in)){
-            byte opciones;
-            do{
-            System.out.println("1) Insertar candidato");
-            System.out.println("2) Actualizar candidato");
-            System.out.println("3) Eliminar candidato");
-            System.out.println("4) Buscar candidato por nombre");
-            System.out.println("5) Lista de todos los candidatos");
-            System.out.println("0) Salir");
-            System.out.print("Seleccione alguna opcion: ");
-            opciones = Byte.parseByte(scanner.nextLine());
-                switch(opciones) {
-                    case 1: InsertarCandidato.main(args); break;
-                    case 2: ElminarCandidato.main(args);
-                    break;
-                    
-                    case 3: LeerCandidato.main(args);
-                    break;
+        Scanner scanner = new Scanner(System.in);
+        byte opciones;
+        do{
+        System.out.println("1) Insertar candidato");
+        System.out.println("5) Lista de todos los candidatos");
+        System.out.println("3) Eliminar candidato");
+        System.out.println("4) Buscar candidato por nombre");
+        System.out.println("5) Lista de todos los candidatos");
+        System.out.println("0) Salir");
+        System.out.print("Seleccione alguna opcion: ");
+        String input = scanner.nextLine();
 
-                    //case 4; BuscarCandidato.main();
-                    //break;
-                    
-                    //case 5; ListaCandidatos.main();
-                    //break;
-
-                    case 0: break;
-                    default: System.out.println("Opcion Invalida");
-                }
-            }while(opciones != 0);
+        try {
+            opciones = Byte.parseByte(input);
+        } catch (NumberFormatException e) {
+            // Si no se puede convertir a byte, asignamos un valor que no afectará el bucle
+            opciones = -1;
         }
+
+        System.out.println();
+            switch(opciones) {
+                case 1: 
+                    Crud.crearCandidato(); 
+                    break;
+                case 2: Crud.leerCandidato();
+                    break;
+                
+                case 3: LeerCandidato.main(args);
+                    break;
+
+                //case 4; BuscarCandidato.main();
+                //break;
+                
+                //case 5; ListaCandidatos.main();
+                //break;
+
+                case 0: break;
+                default: System.out.println("Opcion Invalida");
+            }
+        }while(opciones != 0);
+        scanner.close();
     }
 }
 
