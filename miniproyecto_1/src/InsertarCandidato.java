@@ -15,11 +15,10 @@ public class InsertarCandidato {
                 System.out.println();
                 System.out.println("Ciudad de procedencia");
                 System.out.println();
-                System.out.println("1. Cali      6. Cartago");
-                System.out.println("2. Palmira   7. Jamundi");
-                System.out.println("3. Yumbo     8. Buga");
-                System.out.println("4. Tuluá     9. Andalucia");
-                System.out.println("5. Buenaventura  10. Bugalagrande");
+                System.out.println("1. Cali           2. Palmira         3. Yumbo\n" +
+                                "4. Tuluá          5. Buenaventura    6. Cartago\n" +
+                                "7. Jamundi        8. Buga            9. Andalucia\n" +
+                                "10. Bugalagrande");
                 System.out.println("0. Salir");
                 System.out.print("Digite una opcion: ");
                 try(Scanner scannerCIudad = new Scanner(System.in)){
@@ -27,24 +26,16 @@ public class InsertarCandidato {
                     System.out.println();
                     Ciudades ciudadElegida = null;
                     switch(opcionCiudad){
-                        case 1: ciudadElegida = Ciudades.Cali;
-                                break;
-                        case 2: ciudadElegida = Ciudades.Palmira;
-                                break;
-                        case 3: ciudadElegida = Ciudades.Yumbo;
-                                break;
-                        case 5: ciudadElegida = Ciudades.Buenaventura;
-                                break;
-                        case 6: ciudadElegida = Ciudades.Cartago;
-                                break;
-                        case 7: ciudadElegida = Ciudades.Jamundi;
-                                break;
-                        case 8: ciudadElegida = Ciudades.Buga;
-                                break;
-                        case 9: ciudadElegida = Ciudades.Andalucia;
-                                break;
-                        case 10: ciudadElegida = Ciudades.Bugalagrande;
-                                break;
+                        case 1: ciudadElegida = Ciudades.Cali; break;
+                        case 2: ciudadElegida = Ciudades.Palmira; break;
+                        case 3: ciudadElegida = Ciudades.Yumbo; break;
+                        case 4: ciudadElegida = Ciudades.Tuluá; break;
+                        case 5: ciudadElegida = Ciudades.Buenaventura; break;
+                        case 6: ciudadElegida = Ciudades.Cartago; break;
+                        case 7: ciudadElegida = Ciudades.Jamundi; break;
+                        case 8: ciudadElegida = Ciudades.Buga; break;
+                        case 9: ciudadElegida = Ciudades.Andalucia; break;
+                        case 10: ciudadElegida = Ciudades.Bugalagrande; break;
                         case 0: break;
                         default: System.out.println("Opcion incorrecta");
                     }
@@ -57,10 +48,8 @@ public class InsertarCandidato {
                         byte opcionIdeologia = scannerIdeologia.nextByte();
                         Ideologia ideologiaElegida = null;
                         switch(opcionIdeologia){
-                            case 1:  ideologiaElegida = Ideologia.Derecha;
-                                    break;
-                            case 2: ideologiaElegida = Ideologia.Izquierda;
-                                    break;
+                            case 1:  ideologiaElegida = Ideologia.Derecha; break;
+                            case 2: ideologiaElegida = Ideologia.Izquierda; break;
                             default: System.out.println("Opcion incorrecta");
                            }
                         try(Scanner scannerPartido = new Scanner(System.in)){
@@ -77,14 +66,10 @@ public class InsertarCandidato {
                                 System.out.print("Digite una opcion: ");
                                 byte opcionPartido = scannerPartido.nextByte();
                                 switch(opcionPartido){
-                                    case 1: partidoElejido = Partidos.Centro_Democratico;
-                                            break;
-                                    case 2: partidoElejido = Partidos.Partido_Conservador;
-                                            break;
-                                    case 3: partidoElejido = Partidos.Cambio_Radical;
-                                            break;
-                                    case 4: partidoElejido = Partidos.Partido_De_la_U;
-                                            break;
+                                    case 1: partidoElejido = Partidos.Centro_Democratico; break;
+                                    case 2: partidoElejido = Partidos.Partido_Conservador; break;
+                                    case 3: partidoElejido = Partidos.Cambio_Radical; break;
+                                    case 4: partidoElejido = Partidos.Partido_De_la_U; break;
                                     case 0: break;
                                     default: System.out.println("Opcion incorrecta");
                                 }
@@ -104,21 +89,14 @@ public class InsertarCandidato {
                                 scannerPartido(System.in);
                                 byte opcionPartido = scannerPartido.nextByte();
                                 switch(opcionPartido){
-                                    case 1: partidoElejido = Partidos.Pacto_Historico;
-                                            break;
-                                    case 2: partidoElejido = Partidos.Partido_Liberal;
-                                            break;
-                                    case 3: partidoElejido = Partidos.Alianza_Verde;
-                                            break;
-                                    case 4: partidoElejido = Partidos.Polo_Democratico;
-                                            break;
-                                    case 5: partidoElejido = Partidos.Union_Patriotica;
-                                            break;
-                                    case 6: partidoElejido = Partidos.Fuerza_De_La_Paz;
-                                            break;
+                                    case 1: partidoElejido = Partidos.Pacto_Historico; break;
+                                    case 2: partidoElejido = Partidos.Partido_Liberal; break;
+                                    case 3: partidoElejido = Partidos.Alianza_Verde; break;
+                                    case 4: partidoElejido = Partidos.Polo_Democratico; break;
+                                    case 5: partidoElejido = Partidos.Union_Patriotica; break;
+                                    case 6: partidoElejido = Partidos.Fuerza_De_La_Paz; break;
                                     case 0: break;
                                     default: System.out.println("Opcion incorrecta"); 
-                        
                                 }
                             }
                                 try(Scanner scannerPromesas = new Scanner(System.in)){
@@ -132,13 +110,12 @@ public class InsertarCandidato {
                                                 listaCandidato.add(candidato);
                                                 listaCandidato.forEach((i)->{
                                                         System.out.println("Nombre del candidato: " + i.getNombre());
-                                                        System.out.println("Numero de cedula de el candidato: " + i.getCedula());
+                                                        System.out.println("Numero de cedula del candidato: " + i.getCedula());
                                                         System.out.println("Ciudad de procedencia del candidato: " + i.getCiudades());
-                                                        System.out.println("la ideologia del candidato: " + i.getIdeologia());
+                                                        System.out.println("La ideologia del candidato: " + i.getIdeologia());
                                                         System.out.println("Partido politico del candidato: " + i.getPartido());
                                                         System.out.println("Las promesas del candidato: " + i.getPromesas());
                                                         System.out.println("Numero de votos del candidato: " + i.getVotos());
-                                                        
                                                 });
                                         }    
                                  }            
@@ -148,6 +125,6 @@ public class InsertarCandidato {
             }
         }
     }
-    private static void scannerPartido(InputStream in) {
+    private static void scannerPartido(InputStream in) { // Se define un método estático privado llamado scannerPartido que toma un objeto InputStream como parámetro y no retorna ningún valor. Este método probablemente esté destinado a escanear y procesar datos de tipo de partido.
     }
 }
