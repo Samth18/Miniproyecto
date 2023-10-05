@@ -9,7 +9,7 @@ public class ElminarCandidato {
             String cedulaEliminar = scannerEliminar.nextLine();
             lista.forEach((i)->{
                 if(i.getCedula().equals(cedulaEliminar)){
-                    lista.remove(lista);
+                    //lista.remove(lista); comente esta linea por el momento
                 }
             });
         }

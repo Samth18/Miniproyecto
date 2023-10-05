@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Candidato extends Ciudadano {
     private Ideologia ideologia;
     private Partidos partido;
