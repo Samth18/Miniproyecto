@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Crud {
@@ -132,4 +133,37 @@ public class Crud {
         });
     }
 
+    public static void EliminarCandidato() {
+        Scanner scannerEliminar = new Scanner(System.in);
+
+        System.out.print("Digite la cedula del candidato que desea eliminar: ");
+        String cedulaEliminar = scannerEliminar.nextLine();
+
+        eliminarCandidato(cedulaEliminar);
+
+        // Llamar al método para mostrar la lista actualizada
+        leerCandidato();
+    }
+
+
+    public static void eliminarCandidato(String cedulaEliminar) {
+        Iterator<Candidato> iterator = listaCandidato.iterator();
+        while (iterator.hasNext()) {
+            Candidato candidato = iterator.next();
+            if (candidato.getCedula().equals(cedulaEliminar)) {
+                iterator.remove();
+            }
+        }
 }
+
+
+
+
+
+
+
+
+
+
+}
+
