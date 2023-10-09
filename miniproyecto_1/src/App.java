@@ -28,8 +28,8 @@ public class App {
                 case 1: 
                     Crud.crearCandidato(); 
                     break;
-                //case 2: Crud.ActualizarCandidato();
-                    //break;
+                case 2: Crud.ActualizarCandidato();
+                    break;
                 
                 case 3: Crud.EliminarCandidato();
                     break;
