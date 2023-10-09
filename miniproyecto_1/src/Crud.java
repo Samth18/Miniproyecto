@@ -44,7 +44,6 @@ public class Crud {
             default: System.out.println("Opcion incorrecta");
         }
         
-
         System.out.println("---Ideologia---");
         System.out.println();
         System.out.println("1. Derecha");
@@ -122,7 +121,7 @@ public class Crud {
     }
 
     public static void leerCandidato(){
-        System.out.println("---CANDIDATOS ACTIVOS---");
+        System.out.println("---CANDIDATOS ACTIVOS---\n");
         listaCandidato.forEach((i)->{
             System.out.println("Nombre del candidato: " + i.getNombre());
             System.out.println("Numero de cedula del candidato: " + i.getCedula());
@@ -130,7 +129,8 @@ public class Crud {
             System.out.println("La ideologia del candidato: " + i.getIdeologia());
             System.out.println("Partido politico del candidato: " + i.getPartido());
             System.out.println("Las promesas del candidato: " + i.getPromesas());
-            System.out.println("Numero de votos del candidato: " + i.getVotos() + "\n");
+            System.out.println("Numero de votos del candidato: " + i.getVotos());
+            System.out.println("------------------------------\n");
         });
     }
 
@@ -146,7 +146,7 @@ public class Crud {
         leerCandidato();
     }
 
-
+    // Elminar candidato por medio de la cedula
     public static void eliminarCandidato(String cedulaEliminar) {
         Iterator<Candidato> iterator = listaCandidato.iterator();
         while (iterator.hasNext()) {
@@ -157,13 +157,7 @@ public class Crud {
         }
 }
 
-
-
 //-----------------------------------------------------------
-
-
-
-
 
     public static void ActualizarCandidato(){
         Scanner scanner = new Scanner(System.in);
@@ -182,7 +176,6 @@ public class Crud {
             System.out.println("Promesas actuales: " + candidatoModificar.getPromesas());
             System.out.println("Numero de votos actuales: " + candidatoModificar.getVotos());
             System.out.println("");
-
 
             System.out.print("Nuevo nombre: ");
             String nuevoNombre = scanner.nextLine();
@@ -350,26 +343,25 @@ public class Crud {
             }
         }
 
-        
             System.out.print("Nuevas promesas: ");
             String nuevasPromesas = scanner.nextLine();
             candidatoModificar.setPromesas(nuevasPromesas);
+            System.out.println();
 
             System.out.print("Nuevos votos: ");
             int votosActualizados = scanner.nextInt();
             candidatoModificar.setVotos(votosActualizados);
             
-
             System.out.print("");
 
-            System.out.println("Candidato actualizado:");
+            System.out.println("Candidato actualizado:\n");
             System.out.println("Nuevo nombre: " + candidatoModificar.getNombre());
             System.out.println("Nueva cedula: "+ candidatoModificar.getCedula());
             System.out.println("Nuvea ciudad: "+ candidatoModificar.getCiudades());
             System.out.println("Nueva ideologia: " + candidatoModificar.getIdeologia());
             System.out.println("Nuevo partido politico: " + candidatoModificar.getPartido());
             System.out.println("Nuevas promesas: " + candidatoModificar.getPromesas());
-            System.out.println("Votos actualizados: " + candidatoModificar.getVotos());
+            System.out.println("Votos actualizados: " + candidatoModificar.getVotos() + "\n");
         }
     
     public static Candidato buscarCandidatoPorCedula(List<Candidato> listaCandidato, String cedula) {
@@ -379,7 +371,5 @@ public class Crud {
             }
         }
         return null;
-    }
-
-    
+    }    
 }

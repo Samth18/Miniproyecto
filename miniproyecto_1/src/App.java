@@ -22,7 +22,7 @@ public class App {
             // Si no se puede convertir a byte, asignamos un valor que no afectará el bucle
             opciones = -1;
         }
-
+    
         System.out.println();
             switch(opciones) {
                 case 1: 
