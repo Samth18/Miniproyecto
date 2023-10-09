@@ -1,5 +1,8 @@
 # Miniproyecto 1
 Hecho por:
-Joseph Herrera Libreros -2266309
-Juan David Cuellar - 2266087
-Samuel Escobar Rivera - 2266363
+
+_Joseph Herrera Libreros -2266309_
+
+_Juan David Cuellar - 2266087_
+
+_Samuel Escobar Rivera - 2266363_
