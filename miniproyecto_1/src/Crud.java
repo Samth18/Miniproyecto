@@ -5,7 +5,13 @@ import java.util.Scanner;
 
 public class Crud {
     static ArrayList <Candidato> listaCandidato = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+    public static void limparPantalla() {  //Método para limpiar la pantalla 
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
     public static void crearCandidato(){
+        limparPantalla();
         System.out.println("---CREAR CANDIDATO---");
         System.out.println();
         Scanner scanner = new Scanner(System.in);
@@ -17,6 +23,7 @@ public class Crud {
         String cedula = scanner.nextLine();
         System.out.println();
         
+        limparPantalla();
         System.out.println("Ciudad de procedencia");
         System.out.println();
         System.out.println("1. Cali           2. Palmira         3. Yumbo\n" +
@@ -24,6 +31,7 @@ public class Crud {
                         "7. Jamundi        8. Buga            9. Andalucia\n" +
                         "10. Bugalagrande");
         System.out.println("0. Salir");
+        
         System.out.print("Digite una opcion: ");
         byte opcionCiudad = scanner.nextByte();
         scanner.nextLine();
@@ -43,7 +51,8 @@ public class Crud {
             case 0: break;
             default: System.out.println("Opcion incorrecta");
         }
-        
+
+        limparPantalla();
         System.out.println("---Ideologia---");
         System.out.println();
         System.out.println("1. Derecha");
@@ -57,7 +66,8 @@ public class Crud {
             case 2: ideologiaElegida = Ideologia.Izquierda; break;
             default: System.out.println("Opcion incorrecta");
             }
-
+            
+        limparPantalla();    
         Partidos partidoElejido = null;      
         if(ideologiaElegida == Ideologia.Derecha){
             System.out.println();                                            
@@ -78,8 +88,7 @@ public class Crud {
                 case 3: partidoElejido = Partidos.Cambio_Radical; break;
                 case 4: partidoElejido = Partidos.Partido_De_la_U; break;
                 case 0: break;
-                default: System.out.println("Opcion incorrecta");
-            }
+                default: System.out.println("Opcion incorrecta");}
             }
         else{
             System.out.println();
@@ -117,10 +126,11 @@ public class Crud {
         System.out.println();
         Candidato candidato = new Candidato(ideologiaElegida, partidoElejido, votos, promesas, nombre, cedula, ciudadElegida);
         listaCandidato.add(candidato);
-        
+        limparPantalla();
     }
 
     public static void leerCandidato(){
+        limparPantalla();
         System.out.println("---CANDIDATOS ACTIVOS---\n");
         listaCandidato.forEach((i)->{
             System.out.println("Nombre del candidato: " + i.getNombre());
@@ -135,6 +145,7 @@ public class Crud {
     }
 
     public static void EliminarCandidato() {
+        limparPantalla();
         Scanner scannerEliminar = new Scanner(System.in);
 
         System.out.print("Digite la cedula del candidato que desea eliminar: ");
@@ -142,11 +153,10 @@ public class Crud {
 
         eliminarCandidato(cedulaEliminar);
 
-        // Llamar al método para mostrar la lista actualizada
-        leerCandidato();
+        leerCandidato();// Llamar al método para mostrar la lista actualizada
     }
 
-    // Elminar candidato por medio de la cedula
+    // Método de elminar candidato por medio de la cedula
     public static void eliminarCandidato(String cedulaEliminar) {
         Iterator<Candidato> iterator = listaCandidato.iterator();
         while (iterator.hasNext()) {
@@ -156,10 +166,10 @@ public class Crud {
             }
         }
 }
-
 //-----------------------------------------------------------
-
+// Método para actualizar candidato
     public static void ActualizarCandidato(){
+        limparPantalla();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite la cédula del candidato que desea modificar: ");
         String cedulaModificar = scanner.nextLine();
@@ -185,6 +195,7 @@ public class Crud {
             String nuevaCedula = scanner.nextLine();
             candidatoModificar.setCedula(nuevaCedula);
 
+            limparPantalla();
             System.out.println("Nueva ciudad de procedencia: ");
             System.out.println();
             System.out.println("1. Cali           2. Palmira         3. Yumbo\n" +
@@ -199,38 +210,17 @@ public class Crud {
             Ciudades ciudadElegida = null;
     
             switch (opcionCiudad) {
-                case 1:
-                    ciudadElegida = Ciudades.Cali;
-                    break;
-                case 2:
-                    ciudadElegida = Ciudades.Palmira;
-                    break;
-                case 3:
-                    ciudadElegida = Ciudades.Yumbo;
-                    break;
-                case 4: 
-                    ciudadElegida = Ciudades.Tuluá;
-                    break;
-                case 5: 
-                    ciudadElegida = Ciudades.Buenaventura;
-                    break;
-                case 6: 
-                    ciudadElegida = Ciudades.Cartago;
-                    break;
-                case 7: 
-                    ciudadElegida = Ciudades.Jamundi;
-                    break;
-                case 8: 
-                    ciudadElegida = Ciudades.Buga;
-                    break;
-                case 9: 
-                    ciudadElegida = Ciudades.Andalucia;
-                    break;
-                case 10: 
-                    ciudadElegida = Ciudades.Bugalagrande;
-                    break;
-                case 0:
-                    break;
+                case 1 :ciudadElegida = Ciudades.Cali; break;
+                case 2: ciudadElegida = Ciudades.Palmira;break;
+                case 3: ciudadElegida = Ciudades.Yumbo; break;
+                case 4: ciudadElegida = Ciudades.Tuluá; break;
+                case 5: ciudadElegida = Ciudades.Buenaventura; break;
+                case 6: ciudadElegida = Ciudades.Cartago; break;
+                case 7: ciudadElegida = Ciudades.Jamundi; break;
+                case 8: ciudadElegida = Ciudades.Buga; break;
+                case 9: ciudadElegida = Ciudades.Andalucia; break;
+                case 10: ciudadElegida = Ciudades.Bugalagrande; break;
+                case 0: break;
                 default:
                     System.out.println("Opcion incorrecta");
             }
@@ -238,6 +228,7 @@ public class Crud {
                 if (candidatoModificar != null) {
                     candidatoModificar.setCiudades(ciudadElegida);
                 }
+            limparPantalla();    
             System.out.println("---Ideologia---");
             System.out.println();
             System.out.println("1. Derecha");
@@ -248,18 +239,14 @@ public class Crud {
             Ideologia ideologiaElegida = null;
         
             switch (opcionIdeologia) {
-                case 1:
-                    ideologiaElegida = Ideologia.Derecha;
-                    break;
-                case 2:
-                    ideologiaElegida = Ideologia.Izquierda;
-                    break;
-                default:
-                    System.out.println("Opcion incorrecta");
+                case 1: ideologiaElegida = Ideologia.Derecha; break;
+                case 2: ideologiaElegida = Ideologia.Izquierda; break;
+                default: System.out.println("Opcion incorrecta");
                 }
         
             Partidos partidoElegido = null;
-        
+
+            limparPantalla();    
             if (ideologiaElegida != null) {
                 System.out.println();
                 System.out.println("---Partidos politicos---");
@@ -286,63 +273,47 @@ public class Crud {
                 byte opcionPartido = scanner.nextByte();
                 scanner.nextLine();
                 System.out.println();
-        
+
+                if (ciudadElegida != null) {
+                    if (candidatoModificar != null) {
+                        candidatoModificar.setIdeologia(ideologiaElegida);
+                    }
+                } 
+
                 switch (ideologiaElegida) {
                     case Derecha:
                         switch (opcionPartido) {
-                            case 1:
-                                partidoElegido = Partidos.Centro_Democratico;
-                                break;
-                            case 2:
-                                partidoElegido = Partidos.Partido_Conservador;
-                                break;
-                            case 3:
-                                partidoElegido = Partidos.Cambio_Radical;
-                                break;
-                            case 4:
-                                partidoElegido = Partidos.Partido_De_la_U;
-                                break;
-                            case 0:
-                                break;
-                            default:
-                                    System.out.println("Opcion incorrecta");
-                            }
-                            break;
+                            case 1: partidoElegido = Partidos.Centro_Democratico; break;
+                            case 2: partidoElegido = Partidos.Partido_Conservador; break;
+                            case 3: partidoElegido = Partidos.Cambio_Radical; break;
+                            case 4: partidoElegido = Partidos.Partido_De_la_U; break;
+                            case 0: break;
+                            default:System.out.println("Opcion incorrecta"); 
+                        } break;
+
                     case Izquierda:
                         switch (opcionPartido) {
-                            case 1:
-                                partidoElegido = Partidos.Pacto_Historico;
-                                break;
-                            case 2:
-                                partidoElegido = Partidos.Partido_Liberal;
-                                break;
-                            case 3:
-                                partidoElegido = Partidos.Alianza_Verde;
-                                break;
-                            case 4:
-                                partidoElegido = Partidos.Polo_Democratico;
-                                break;
-                            case 5:
-                                partidoElegido = Partidos.Union_Patriotica;
-                                break;
-                            case 6:
-                                partidoElegido = Partidos.Fuerza_De_La_Paz;
-                                break;
-                            case 0:
-                                break;
-                            default:
-                                System.out.println("Opcion incorrecta");
-                            }
-                        break; 
+                            case 1: partidoElegido = Partidos.Pacto_Historico; break;
+                            case 2: partidoElegido = Partidos.Partido_Liberal; break;
+                            case 3: partidoElegido = Partidos.Alianza_Verde; break;
+                            case 4: partidoElegido = Partidos.Polo_Democratico; break;
+                            case 5: partidoElegido = Partidos.Union_Patriotica; break;
+                            case 6: partidoElegido = Partidos.Fuerza_De_La_Paz; break;
+                            case 0:break;
+                            default: System.out.println("Opcion incorrecta"); 
+                        } break; 
+                    }                
+                    if (ciudadElegida != null) {
+                        if (candidatoModificar != null) {
+                            candidatoModificar.setPartido(partidoElegido);
+                        } 
                     }
                 }
-        
-                // Ahora tienes la ideología y el partido seleccionados
                 System.out.println("Ideologia actualizada ");
                 System.out.println("Partido actualizado ");
             }
-        }
-
+        }   
+            limparPantalla();
             System.out.print("Nuevas promesas: ");
             String nuevasPromesas = scanner.nextLine();
             candidatoModificar.setPromesas(nuevasPromesas);
@@ -365,6 +336,7 @@ public class Crud {
         }
     
     public static Candidato buscarCandidatoPorCedula(List<Candidato> listaCandidato, String cedula) {
+        limparPantalla();
         for (Candidato candidato : listaCandidato) {
             if (candidato.getCedula().equals(cedula)) {
                 return candidato;
