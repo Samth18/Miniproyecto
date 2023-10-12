@@ -40,6 +40,8 @@ public class App {
         scanner.close();
 
         Crud.reporte();
-        Crud.candidatoGanador(null);
+        Crud.candidatoGanador(Crud.listaCandidato);
+        Crud.top3Ciudades(Crud.listaCandidato);
+        Crud.partidoConMasCandidatos(Crud.listaCandidato);
     }
 }
