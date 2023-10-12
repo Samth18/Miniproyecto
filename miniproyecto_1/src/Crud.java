@@ -366,6 +366,6 @@ public class Crud {
             } 
         }
 
-        System.out.println("El Candidato ganador es " + candidatoConMasVotos.getNombre() + " Con: " + candidatoConMasVotos.getVotos() + " votos." );
+        System.out.println("El Candidato ganador es " + candidatoConMasVotos.getNombre() + " con " + candidatoConMasVotos.getVotos() + " votos." );
     }
 }
