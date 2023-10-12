@@ -170,8 +170,7 @@ public class Crud {
             }
         }
 }
-//-----------------------------------------------------------
-// Método para actualizar candidato
+
     public static void ActualizarCandidato(){
         limparPantalla();
         Scanner scanner = new Scanner(System.in);
@@ -180,6 +179,7 @@ public class Crud {
 
         Candidato candidatoModificar = buscarCandidatoPorCedula(listaCandidato, cedulaModificar);
 
+        //Llama los metodos get del archivo candidato para modificarlos.
         if (candidatoModificar != null) {
             System.out.println("Candidato encontrado:");
             System.out.println("Nombre actual: " + candidatoModificar.getNombre());
@@ -193,11 +193,11 @@ public class Crud {
 
             System.out.print("Nuevo nombre: ");
             String nuevoNombre = scanner.nextLine();
-            candidatoModificar.setNombre(nuevoNombre);
+            candidatoModificar.setNombre(nuevoNombre); //Se modifica el nombre y se añade a la lista.
 
             System.out.print("Nueva cedula: ");
             String nuevaCedula = scanner.nextLine();
-            candidatoModificar.setCedula(nuevaCedula);
+            candidatoModificar.setCedula(nuevaCedula); //Se modifica la cedual y se actualiza.
 
             limparPantalla();
             System.out.println("Nueva ciudad de procedencia: ");
@@ -228,7 +228,7 @@ public class Crud {
                 default:
                     System.out.println("Opcion incorrecta");
             }
-            if (ciudadElegida != null) {
+            if (ciudadElegida != null) { //Si hay algo busca en ciudades para saber cual es.
                 if (candidatoModificar != null) {
                     candidatoModificar.setCiudades(ciudadElegida);
                 }
@@ -284,7 +284,7 @@ public class Crud {
                     }
                 } 
 
-                switch (ideologiaElegida) {
+                switch (ideologiaElegida) { //Elegir una nueva ideologia por un menu.
                     case Derecha:
                         switch (opcionPartido) {
                             case 1: partidoElegido = Partidos.Centro_Democratico; break;
@@ -318,12 +318,12 @@ public class Crud {
             }
         }   
             limparPantalla();
-            System.out.print("Nuevas promesas: ");
+            System.out.print("Nuevas promesas: "); //Actualiza las promesas.
             String nuevasPromesas = scanner.nextLine();
             candidatoModificar.setPromesas(nuevasPromesas);
             System.out.println();
 
-            System.out.print("Nuevos votos: ");
+            System.out.print("Nuevos votos: "); //Actualiza los votos.
             int votosActualizados = scanner.nextInt();
             candidatoModificar.setVotos(votosActualizados);
             
@@ -339,10 +339,11 @@ public class Crud {
             System.out.println("Votos actualizados: " + candidatoModificar.getVotos() + "\n");
         }
     
+    //Busca el candidato a actualizar mediante la cedula, facilitando su busca
     public static Candidato buscarCandidatoPorCedula(List<Candidato> listaCandidato, String cedula) {
         limparPantalla();
         for (Candidato candidato : listaCandidato) {
-            if (candidato.getCedula().equals(cedula)) {
+            if (candidato.getCedula().equals(cedula)) { //Recorre la lista en busca que el numero de cedula coincida.
                 return candidato;
             }
         }
@@ -373,7 +374,8 @@ public class Crud {
         }
         System.out.println("-----CANDIDATO GANADOR-----\n");
         System.out.println("El Candidato ganador es " + candidatoConMasVotos.getNombre() + " con " + candidatoConMasVotos.getVotos() + " votos." );
-        System.out.println();
+        System.out.println(" Promesas del candidato ganador: " + candidatoConMasVotos.getPromesas());
+        System.out.println(" ");
 
     }
     public static void top3Ciudades(List<Candidato> listaCandidato){
@@ -386,7 +388,7 @@ public class Crud {
         System.out.println("---CIUDADES CON MENOS CANDIDATOS DE ORIGEN---\n");
         for (Candidato candidato : listaCandidato){
             Ciudades ciudad = candidato.getCiudades();
-            contadorCiudades.put(ciudad, contadorCiudades.getOrDefault(ciudad, 0) + 1); 
+            contadorCiudades.put(ciudad, contadorCiudades.getOrDefault(ciudad, 0) + 1); //Recorre el mapa y verifica si existe alguna entrada o valor. 
         }
 
         List<Map.Entry<Ciudades, Integer>> listaOrdenada = contadorCiudades.entrySet()
@@ -394,7 +396,7 @@ public class Crud {
                 .sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toList());
         
-        int top = Math.min(3, listaOrdenada.size());
+        int top = Math.min(3, listaOrdenada.size()); //Aca se determina tres ciudades con menos candidatos.
 
         
         for (int i = 0; i < top; i++) {
@@ -410,7 +412,7 @@ public class Crud {
         
         for (Candidato candidato : listaCandidato) {
             
-            conteoPartidos.put(candidato.getPartido(), conteoPartidos.getOrDefault(candidato.getPartido(), 0) + 1);
+            conteoPartidos.put(candidato.getPartido(), conteoPartidos.getOrDefault(candidato.getPartido(), 0) + 1); //Recorre el mapa y verifica si existe alguna entrada o valor en partido. 
         }
 
         Partidos partidoMasCandidatos = null;
