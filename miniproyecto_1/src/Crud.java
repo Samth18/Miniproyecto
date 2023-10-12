@@ -1,7 +1,11 @@
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Crud {
     static ArrayList <Candidato> listaCandidato = new ArrayList<>();
@@ -10,6 +14,7 @@ public class Crud {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+    
     public static void crearCandidato(){
         limparPantalla();
         System.out.println("---CREAR CANDIDATO---");
@@ -346,26 +351,82 @@ public class Crud {
     }
 
     public static void reporte(){
-        limparPantalla();
-        System.out.println("-----Votos de los candidatos-----\n");
+    
+        System.out.println("-----VOTOS DE LOS CANDIDATOS-----\n");
         for (Candidato candidato : listaCandidato) {
         System.out.println(candidato.getNombre() + ": " + candidato.getVotos() + " votos");
+        System.out.println();
     }
     }
 
     public static void candidatoGanador(List<Candidato> candidatos){
-        limparPantalla();
         if(listaCandidato.isEmpty()){
             System.out.println("No hay candidatos por mostrar");
         }
         
         Candidato candidatoConMasVotos = listaCandidato.get(0);
+
+        
         for (Candidato candidato : listaCandidato) {
             if (candidato.getVotos() > candidatoConMasVotos.getVotos()) {
                 candidatoConMasVotos = candidato;
             } 
         }
-
+        System.out.println("-----CANDIDATO GANADOR-----\n");
         System.out.println("El Candidato ganador es " + candidatoConMasVotos.getNombre() + " con " + candidatoConMasVotos.getVotos() + " votos." );
+        System.out.println();
+
     }
+    public static void top3Ciudades(List<Candidato> listaCandidato){
+        
+        if (listaCandidato.isEmpty()) {
+            System.out.println("No hay nada mi rey");
+        }
+        Map<Ciudades, Integer> contadorCiudades = new HashMap<>(); //Permite representar una estructura de datos para almacenar pares “clave/valor".
+
+        System.out.println("---CIUDADES CON MENOS CANDIDATOS DE ORIGEN---\n");
+        for (Candidato candidato : listaCandidato){
+            Ciudades ciudad = candidato.getCiudades();
+            contadorCiudades.put(ciudad, contadorCiudades.getOrDefault(ciudad, 0) + 1); 
+        }
+
+        List<Map.Entry<Ciudades, Integer>> listaOrdenada = contadorCiudades.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
+        
+        int top = Math.min(3, listaOrdenada.size());
+
+        
+        for (int i = 0; i < top; i++) {
+            Map.Entry<Ciudades, Integer> entry = listaOrdenada.get(i);
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " candidatos");
+            System.out.println("");
+        }
+        
+    }
+    
+    public static Partidos partidoConMasCandidatos(List<Candidato> listaCandidato) {
+        Map<Partidos, Integer> conteoPartidos = new HashMap<>();
+        
+        for (Candidato candidato : listaCandidato) {
+            
+            conteoPartidos.put(candidato.getPartido(), conteoPartidos.getOrDefault(candidato.getPartido(), 0) + 1);
+        }
+
+        Partidos partidoMasCandidatos = null;
+        int maxCandidatos = 0;
+        
+        for (Map.Entry<Partidos, Integer> entry : conteoPartidos.entrySet()) {
+            if (entry.getValue() > maxCandidatos) {
+                maxCandidatos = entry.getValue();
+                partidoMasCandidatos = entry.getKey();
+            }
+        }
+
+        System.out.println("Partido con más candidatos:\n " + partidoMasCandidatos);
+        
+		return null;
+    }
+
 }
