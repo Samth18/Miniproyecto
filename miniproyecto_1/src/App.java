@@ -38,5 +38,8 @@ public class App {
             }
         }while(opciones != 0);
         scanner.close();
+
+        Crud.reporte();
+        Crud.candidatoGanador(null);
     }
 }

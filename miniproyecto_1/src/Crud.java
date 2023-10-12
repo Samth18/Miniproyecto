@@ -343,5 +343,29 @@ public class Crud {
             }
         }
         return null;
-    }    
+    }
+
+    public static void reporte(){
+        limparPantalla();
+        System.out.println("-----Votos de los candidatos-----\n");
+        for (Candidato candidato : listaCandidato) {
+        System.out.println(candidato.getNombre() + ": " + candidato.getVotos() + " votos");
+    }
+    }
+
+    public static void candidatoGanador(List<Candidato> candidatos){
+        limparPantalla();
+        if(listaCandidato.isEmpty()){
+            System.out.println("No hay candidatos por mostrar");
+        }
+        
+        Candidato candidatoConMasVotos = listaCandidato.get(0);
+        for (Candidato candidato : listaCandidato) {
+            if (candidato.getVotos() > candidatoConMasVotos.getVotos()) {
+                candidatoConMasVotos = candidato;
+            } 
+        }
+
+        System.out.println("El Candidato ganador es " + candidatoConMasVotos.getNombre() + " Con: " + candidatoConMasVotos.getVotos() + " votos." );
+    }
 }
